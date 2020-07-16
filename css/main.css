@@ -1,17 +1,17 @@
 @import url(reset.css);
 
-html, body{width:100vw;height:100vh;min-width:1280px;min-height:720px}
+html, body{width:100vw;height:100vh;min-width:1280px;min-height:720px;overflow:hidden}
 .wrapper{width:100vw;height:100vh;background:url(../images/bg.jpg) no-repeat center / cover}
 
 /* intro */
 
-.intro{width:100%;height:100%;position:relative;font:24em 'Astronaut';display:none}
+.intro{width:100%;height:100%;position:relative;font:24em 'Astronaut';display:}
 
 .text_line{font-size:.5em}
 
 .intro svg{position:absolute;width:100%;height:100%;opacity:0.8}
 
-.text_copy{fill:none;stroke:#fff;stroke-dasharray: 7% 28%;stroke-width: 1px;-webkit-animation:stroke-offset 5s ease;animation:stroke-offset 5s ease}
+.text_copy{fill:none;stroke:#fff;stroke-dasharray: 7% 28%;stroke-width: 1px;-webkit-animation:stroke-offset 5s ease;animation:stroke-offset 4s ease}
 
 .text_copy:nth-child(1){stroke:#fff;stroke-dashoffset:7%}
 .text_copy:nth-child(2){stroke:#fff;stroke-dashoffset:14%}
@@ -41,10 +41,10 @@ html, body{width:100vw;height:100vh;min-width:1280px;min-height:720px}
 .gnb{width:100%;}
 .gnb a{display:block;color:#fff;font-size:40px;margin-bottom:30px;padding-left:80px;position:relative;height:40px;line-height:40px}
 .gnb a.on{color:#6809fb}
-.gnb a:after{content:'';position:absolute;top:50%;left:0;color:#6809fb;background-color:#6809fb;width:0;height:2px;margin-top:-1px;transition:width .5s ease}
+.gnb a:after{content:'';position:absolute;top:50%;left:0;background-color:#6809fb;width:0;height:2px;margin-top:-1px;transition:width .5s ease}
 .gnb a.on:after{width:50px}
 
-.gnb a:hover span{animation:text_bounce 1s ease;display:inline-block}
+.gnb a:hover span{animation:text_bounce 1s ease;display:inline-block;color:#6809fb;transition:color .5s ease}
 .gnb a:hover span:nth-of-type(2){animation-delay:.05s}
 .gnb a:hover span:nth-of-type(3){animation-delay:.1s}
 .gnb a:hover span:nth-of-type(4){animation-delay:.15s}
@@ -62,19 +62,19 @@ html, body{width:100vw;height:100vh;min-width:1280px;min-height:720px}
 }
 
 
-
 /* profile */
 
-.profile{width:100%;height:30%;position:absolute;top:50%;left:0;padding-left:calc(300px + 15%);transform:translateY(-50%);display:none}
+.profile{width:100%;height:30%;position:absolute;top:50%;right:0;padding-left:calc(300px + 15%);transform:translateY(-50%);display:none}
 
-.notebook{float:left;width:500px;height:400px;background:url(../images/notebook.svg) no-repeat 0 0 / contain;display:block;margin-top:-30px}
+.notebook{float:left;width:500px;height:400px;background:url(../images/notebook.svg) no-repeat 0 0 / contain;display:block;margin-top:-30px;animation:notebook_ani 5s linear infinite alternate;}
 
-/* @keyframes notebook_ani {
-  0%{transform:rotate(0deg) translate(-200px,0)}
-  20%{transform:rotate(0deg) translate(-100px,100px)}
-  80%{transform:rotate(0deg) translate(100px,-100px)}
-  100%{transform:rotate(0deg) translate(200px,0)}
-} */
+@keyframes notebook_ani {
+  0%{transform:rotate(0deg) translate(0px,0)}
+  25%{transform:rotate(0deg) translate(10px,30px)}
+  50%{transform:rotate(0deg) translate(0px,0px)}
+  75%{transform:rotate(0deg) translate(-10px,30px)}
+  100%{transform:rotate(0deg) translate(0px,0)}
+}
 
 .profile_cont{float:right;color:#fff;font-family:'NanumSquare';padding-right:15%}
 
@@ -89,13 +89,13 @@ html, body{width:100vw;height:100vh;min-width:1280px;min-height:720px}
 
 /* skill */
 
-.skill{width:100%;height:100%;position:absolute;top:50%;left:0;padding-left:calc(300px + 15%);transform:translateY(-50%);display:none}
+.skill{width:100%;height:100%;position:absolute;top:50%;right:0;padding-left:calc(300px + 15%);transform:translateY(-50%);display:none}
 
 .skill_list{color:rgba(255, 255, 255, 0.801);font-family:'NanumSqaure';position:absolute;top:50%;right:10vw;padding-left:calc(300px + 15%);transform:translateY(-50%)}
 .skill_cont{height:100px;margin-bottom:50px}
 .skill_cont *{vertical-align:middle;}
 .skill_name{font-size:0;width:100px;height:100px;display:inline-block;border-radius:50%;line-height:100px;position:relative;box-shadow:3px 3px 3px rgba(0, 0, 0, 0.1)}
-.skill_dsc{font-size:18px;display:inline-block;margin-left:20px;line-height:1.8;animation: skill_dsc_ani 2s ease}
+.skill_dsc{font-size:18px;display:inline-block;margin-left:20px;line-height:1.8;animation: skill_dsc_ani 2s ease;animation-delay:3s}
 
 .skill_cont:nth-of-type(1) .skill_name{background:url(../images/html.svg) no-repeat 0 0 / cover}
 .skill_cont:nth-of-type(2) .skill_name{background:url(../images/css.svg) no-repeat 0 0 / cover}
@@ -103,7 +103,7 @@ html, body{width:100vw;height:100vh;min-width:1280px;min-height:720px}
 .skill_cont:nth-of-type(4) .skill_name{background:url(../images/ps.svg) no-repeat 0 0 / cover}
 .skill_cont:nth-of-type(5) .skill_name{background:url(../images/ai.svg) no-repeat 0 0 / cover}
 
-.skill_name:after{content:'';position:absolute;top:0;right:1px;background-color:#fff;height:100%;width:30vw;z-index:-1;border-radius:50px;opacity:.2;box-shadow:3px 3px 3px rgba(0, 0, 0)}
+.skill_name:after{content:'';position:absolute;top:0;right:1px;background-color:#fff;height:100%;width:30vw;z-index:-1;border-radius:50px;opacity:.2;box-shadow:3px 3px 3px rgba(0, 0, 0);animation-delay:5s}
 
 .skill_cont:nth-of-type(1) .skill_name:after{width:40vw;animation:skill_1 2s ease}
 .skill_cont:nth-of-type(2) .skill_name:after{width:35vw;animation:skill_2 2s ease}
@@ -144,18 +144,21 @@ html, body{width:100vw;height:100vh;min-width:1280px;min-height:720px}
  100%{
   transform: translateY(0px);;
   opacity: 1;
- }
+}
 }
 
 /* portfolio */
 
-.portfolio{width:100%;height:650px;position:absolute;top:50%;left:0;margin-left:300px;transform:translateY(-50%);color:#fff;font-family:'NanumSqaure';z-index:99;display:}
+.portfolio{width:100%;height:650px;position:absolute;top:50%;left:0;margin-left:300px;transform:translateY(-50%);color:#fff;font-family:'NanumSqaure';z-index:99;display:none}
 
-.portfolio_list{width:20000px}
-.portfolio_cont{float:left;width:1300px}
-.portfolio_list .portfolio_cont .cont_img{width:500px;height:650px;background-color:#fff;border-radius:50px;box-shadow:-20px 20px 0px rgba(0, 0, 0, 0.8);transition:all 1s ease;transform:skewY(8deg) rotateY(30deg)}
+.portfolio_list{width:20000px;position:absolute;top:0;left:0}
+.portfolio_cont{float:left;width:1300px;opacity:0;transition:opacity 1s ease}
 
-.portfolio_cont .cont_img:hover{transform:skewY(0deg);box-shadow:0px 0px 10px rgb(0, 0, 0);transition:all 3s ease}
+.portfolio_cont.on,.portfolio_cont.ready{opacity:1}
+
+.portfolio_list .portfolio_cont .cont_img{float:left;width:500px;height:650px;background-color:#fff;border-radius:50px;box-shadow:-20px 20px 0px rgba(0, 0, 0, 0.8);transition:all 1s ease;transform:skewY(12deg) rotateY(30deg);margin-right:80px;transition:all 2s ease}
+
+.portfolio_list .portfolio_cont.on .cont_img{transform:skewY(0deg);box-shadow:0px 0px 10px rgb(0, 0, 0);background-color:transparent}
 
 .portfolio_cont .cont_info{float:left;margin-top:100px}
 .cont_info h3{font-size:60px;color:#fff;text-shadow:1px 1px 5px #000}
@@ -165,7 +168,7 @@ html, body{width:100vw;height:100vh;min-width:1280px;min-height:720px}
 
 .cont_dsc{font-size:20px;font-weight:500;line-height:2;opacity:.8}
 
-.link_list{display:block;margin-top:30px;font-size:20px;color:#fff;height:50px;line-height:50px;font-weight:100;opacity:.6;text-align:center;background: rgb(226,0,98);background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%,rgb(37, 0, 61)50%,rgba(0, 0, 0, 0) 100%);font-family:'Astronaut';transition:all 1s ease}
+.link_list{display:block;margin-top:30px;font-size:20px;color:#fff;height:50px;line-height:50px;font-weight:100;opacity:.6;text-align:center;background: rgb(226,0,98);background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%,rgb(23, 0, 39)50%,rgba(0, 0, 0, 0) 100%);font-family:'Astronaut';transition:all 1s ease}
 .link_list:hover{opacity:1;background: rgb(226,0,98);background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%,rgba(206,1,122,1) 40%,rgba(157,5,183,1) 60%,rgba(0, 0, 0, 0) 100%)}
 
 
@@ -178,6 +181,6 @@ html, body{width:100vw;height:100vh;min-width:1280px;min-height:720px}
 .portfolio_cont:nth-of-type(7) .cont_img{background:url(../images/icheon.jpg) no-repeat top left / cover}
 
 .portfolio_list .portfolio_cont .cont_img{background-color:rgba(0, 0, 0, 0.568);background-blend-mode:multiply}
-.portfolio_list .portfolio_cont.on .cont_img{background-color:transparent}
 
-.portfolio_cont .cont_img:hover{background-position:bottom left}
+
+.portfolio_cont.on .cont_img:hover{background-position:bottom left}

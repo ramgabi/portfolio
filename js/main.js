@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-//var introSid = setTimeout(closeIntro,5000)
+var introSid = setTimeout(closeIntro,4000)
 
  const $document = $(document),
  $intro = $('.intro'),
@@ -9,54 +9,97 @@ $(document).ready(function(){
  $portfolio = $('.portfolio'),
  $skill = $('.skill');
 
+ const pageBox = [$profile,$portfolio,$skill]
+ var currentNum = 0;
+
  function closeIntro(){
   $intro.fadeOut('slow');
 
   $header.css('left','-400px').show().animate({
    left:0
   },1000)
-
+  
   $profile.css('opacity','0').show().animate({
-   opacity:1
-  },2000)
- }
+      opacity:1
+    },2000)
+}
 
+/* header */
 
-/* portfolio img */
-/* 
-const $portfolio_cont_on = $('.portfolio_cont.on'),
-$cont_img = $portfolio_cont_on.find('.cont_img');
+const $gnb = $('.gnb');
 
-console.log($cont_img)
+function changePage(num){
+    pageBox[num].css('left','100vw').show().animate({
+        left:0
+    },2000);
 
-var moveMax = 100,
-rotateMax = 200,
-docX,docY,moveX,moveY,rotateX,rotateY;
+    pageBox[currentNum].animate({
+        left:'100vw'
+    },2000,function(){
+        $(this).hide()
+    })
 
-$document.mousemove(function(e){
- docX = $document.width();
- docY = $document.height();
+    currentNum = num
+}
 
- moveX = (e.pageX - docX/2) / (docX/2) * -moveMax;
- moveY = (e.pageY - docY/2) / (docY/2) * -moveMax;
- 
- rotateX = (e.pageX / docX * rotateMax * 2) / (docX/2) * -rotateMax;
- rotateY = (e.pageX / docY * rotateMax * 2) / (docX/2) * -rotateMax;
- 
- moveImg();
- 
-})
+$gnb.find('a').each(function(){
+    $(this).on('click',function(e){
+        e.preventDefault();
 
-function moveImg(){
- $cont_img.css({
-  left:moveX+'px',
-  top:moveY+'px',
-  transform:'rotateX('+rotateX+'deg) rotateY('+rotateY+'deg)'
- })
-} */
-
+        if(!$(this).hasClass('on')){
+            var gnbNum = $(this).index();
+            $gnb.find('a').removeClass('on');
+            $(this).addClass('on');
+    
+            changePage(gnbNum);
+        }
+    })
 })
 
 
 
 
+
+/* portfolio */
+
+const $portfolio_list = $('.portfolio_list'),
+$portfolio_cont = $('.portfolio_cont')
+
+var pageNum = 0,
+porContLength = $portfolio_cont.length-1;
+
+function animateList(num){
+    var contWidth = $portfolio_cont.width();
+    var moveList = contWidth * num;
+
+    $portfolio_cont.removeClass('on ready')
+    $portfolio_cont.eq(num).addClass('on')
+    $portfolio_cont.eq(num+1).addClass('ready')
+    
+    $portfolio_list.animate({
+        left:-moveList
+    },1000,function(){
+    })
+
+}
+
+function WheelDirection(delta){
+    if(delta > 0){
+      if(pageNum > 0){
+        pageNum--;
+       }
+    }else{
+      if(pageNum < porContLength){
+          pageNum++;
+      }
+    }
+    animateList(pageNum);
+  }
+
+$portfolio.on('mousewheel',function(e){
+    var delta = e.originalEvent.wheelDelta;
+    if(!$portfolio_list.is(':animated')){
+    WheelDirection(delta);
+    } 
+})
+})
