@@ -7,7 +7,9 @@ var introSid = setTimeout(closeIntro,4000)
  $header = $('.header'),
  $profile = $('.profile'),
  $portfolio = $('.portfolio'),
- $skill = $('.skill');
+ $skill = $('.skill'),
+ $text_line = $('.text_line'),
+ $text_line2 = $('.text_line2');
 
  const pageBox = [$profile,$portfolio,$skill]
  var currentNum = 0;
