@@ -1,7 +1,7 @@
 @import url(reset.css);
 
 html, body{width:100vw;height:100vh;overflow:hidden}
-.wrapper{width:100vw;height:100vh;background:url(../images/bg.jpg) no-repeat center / cover}
+.wrapper{width:100vw;height:100vh;background:url(../images/bg.jpg) no-repeat center / cover;overflow:hidden}
 
 .warning{width:100vw;height:100vh;background-color:#222;text-align:center;font-size:24px;color:#fff;position:fixed;top:0;left:0;bottom:0;right:0;line-height:100vh;z-index:999;display:none}
 
@@ -93,7 +93,7 @@ html, body{width:100vw;height:100vh;overflow:hidden}
 
 .skill{width:100%;height:100%;position:absolute;top:50%;right:0;padding-left:30vw;transform:translateY(-50%);display:none}
 
-.skill_list{color:rgba(255, 255, 255, 0.801);font-family:'NanumSqaure';position:absolute;top:50%;right:5vw;padding-left:30vw;transform:translateY(-50%)}
+.skill_list{color:rgba(255, 255, 255, 0.801);font-family:'NanumSqaure';position:absolute;top:50%;right:5vw;transform:translateY(-50%)}
 .skill_cont{height:7vw;margin-bottom:5vh;max-height:80px}
 .skill_cont *{vertical-align:middle}
 .skill_name{font-size:0;width:7vw;height:7vw;display:inline-block;border-radius:50%;position:relative;box-shadow:3px 3px 3px rgba(0, 0, 0, 0.1);max-width:80px;max-height:80px}
@@ -105,7 +105,7 @@ html, body{width:100vw;height:100vh;overflow:hidden}
 .skill_cont:nth-of-type(4) .skill_name{background:url(../images/ps.svg) no-repeat 0 0 / cover}
 .skill_cont:nth-of-type(5) .skill_name{background:url(../images/ai.svg) no-repeat 0 0 / cover}
 
-.skill_name:after{content:'';position:absolute;top:0;right:1px;background-color:#fff;height:100%;width:30vw;z-index:-1;border-radius:3.9vw;opacity:.2;box-shadow:3px 3px 3px rgba(0, 0, 0)}
+.skill_name:after{content:'';position:absolute;top:0;right:1px;background-color:#fff;height:100%;width:30vw;z-index:-1;border-radius:3.9vw;opacity:.2;box-shadow:3px 3px 3px rgb(0, 0, 0)}
 
 .skill_cont:nth-of-type(1) .skill_name:after{width:calc(60vw - 300px);animation:skill_1 4s ease}
 .skill_cont:nth-of-type(2) .skill_name:after{width:calc(57vw - 300px);animation:skill_2 4s ease}
@@ -189,7 +189,7 @@ html, body{width:100vw;height:100vh;overflow:hidden}
 
 /* tab */
 
-@media all and (max-width:1024px){
+@media all and (max-width:1280px){
 
   .header{width:100%;height:13vw;padding-top:0;background-color:rgba(51, 51, 51, 0.7)}
   .header:after{display:none}
@@ -277,7 +277,14 @@ html, body{width:100vw;height:100vh;overflow:hidden}
 
   .notebook{width:42vh}
 
-  .portfolio{height:calc(100% -140px);margin-top:70px}
+  .portfolio{height:calc(100% - 140px);margin-top:70px}
   .portfolio_cont .cont_info{margin:20px auto 50px}
+
+  .skill{height:calc(100% - 140px);left:50%;margin-top:70px;transform:translate(-50%,-50%)}
+  .skill_list{text-align:center;width:100vw;overflow:scroll;height:90%;position:relative;right:initial;top:0;transform:none}
+  .skill_cont{height:23vh;max-height:150px}
+  .skill_name{display:block;margin:0 auto;width:16vw;height:16vw}
+  .skill_name:after{display:none}
+  .skill_dsc{margin:20px 0 0;font-size:4vw;display:block}
   
 }

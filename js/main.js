@@ -20,13 +20,24 @@ var introSid = setTimeout(closeIntro,4000)
  function closeIntro(){
   $intro.fadeOut('slow');
 
-  $header.css('left','-400px').show().animate({
-   left:0
-  },1000)
-  
-  $profile.css('opacity','0').show().animate({
-      opacity:1
-    },2000)
+  if(isWeb){
+      $header.css('left','-400px').show().animate({
+       left:0
+      },1000)
+      
+      $profile.css('opacity','0').show().animate({
+          opacity:1
+        },2000)
+    }else{
+        $header.css('top',-$header.height()).show().animate({
+         top:0
+        },1000)
+        
+        $profile.css('opacity','0').show().animate({
+            opacity:1
+          },2000)
+  }
+
 }
 
 /* checkAgent */
@@ -40,6 +51,8 @@ if( (navigator.appName == 'Netscape' && navigator.userAgent.search('Trident') !=
 
 /* checkWeb */
 var isWeb = false;
+var thisWidth = $document.width();
+
 checkWeb();
 
 $(window).on('resize',function(){
@@ -48,9 +61,9 @@ $(window).on('resize',function(){
 })
 
 function checkWeb(){
-    var thisWidth = $(window).width();
+    thisWidth = $document.width();
     
-    if(thisWidth >= 1024){
+    if(thisWidth >= 1280){
         isWeb = true;
         animateList(0);
         pageNum = 0;
@@ -66,15 +79,21 @@ function checkWeb(){
 const $gnb = $('.gnb');
 
 function changePage(num){
-    pageBox[num].css('left','100vw').show().animate({
-        left:0
-    },2000);
 
-    pageBox[currentNum].animate({
-        left:'100vw'
-    },2000,function(){
-        $(this).hide()
-    })
+    if(isWeb){
+        pageBox[num].css('left',thisWidth).show().stop().animate({
+            left:0
+        },2000);
+    
+        pageBox[currentNum].stop().animate({
+            left:thisWidth
+        },2000,function(){
+            $(this).hide()
+        })
+    }else{
+        pageBox[num].fadeIn(1000)
+        pageBox[currentNum].fadeOut(500)
+    }
 
     currentNum = num
 }
@@ -83,7 +102,7 @@ $gnb.find('a').each(function(){
     $(this).on('click',function(e){
         e.preventDefault();
 
-        if(!$(this).hasClass('on') && !$section.is(':animated')){
+        if(!$(this).hasClass('on')){
             var gnbNum = $(this).index();
             $gnb.find('a').removeClass('on');
             $(this).addClass('on');

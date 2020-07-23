@@ -2,9 +2,8 @@
 
 /*font*/
 
-@font-face{font-family:'Astronaut';src:url(Astronaut_PersonalUse.otf
- ) format('woff')}
 @import url('https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css');
+@font-face{font-family:'Astronaut';src:url(Astronaut_PersonalUse.otf) format('woff')}
 
 /*reset*/
 
