@@ -8,8 +8,11 @@ var introSid = setTimeout(closeIntro,4000)
  $profile = $('.profile'),
  $portfolio = $('.portfolio'),
  $skill = $('.skill'),
+ $section = $('section'),
  $text_line = $('.text_line'),
- $text_line2 = $('.text_line2');
+ $text_line2 = $('.text_line2'),
+ $portfolio_list = $('.portfolio_list'),
+ $portfolio_cont = $('.portfolio_cont');
 
  const pageBox = [$profile,$portfolio,$skill]
  var currentNum = 0;
@@ -25,6 +28,38 @@ var introSid = setTimeout(closeIntro,4000)
       opacity:1
     },2000)
 }
+
+/* checkAgent */
+
+var agent = navigator.userAgent.toLowerCase();
+
+if( (navigator.appName == 'Netscape' && navigator.userAgent.search('Trident') != -1) || (agent.indexOf("msie") != -1) ){
+    $('.warning').show();
+}
+
+
+/* checkWeb */
+var isWeb = false;
+checkWeb();
+
+$(window).on('resize',function(){
+    clearInterval(resizing)
+    var resizing = setTimeout(checkWeb,500)
+})
+
+function checkWeb(){
+    var thisWidth = $(window).width();
+    
+    if(thisWidth >= 1024){
+        isWeb = true;
+        animateList(0);
+        pageNum = 0;
+    }else{
+        isWeb = false;
+        $portfolio_list.css('left','0');
+    }
+}
+
 
 /* header */
 
@@ -48,7 +83,7 @@ $gnb.find('a').each(function(){
     $(this).on('click',function(e){
         e.preventDefault();
 
-        if(!$(this).hasClass('on')){
+        if(!$(this).hasClass('on') && !$section.is(':animated')){
             var gnbNum = $(this).index();
             $gnb.find('a').removeClass('on');
             $(this).addClass('on');
@@ -63,9 +98,6 @@ $gnb.find('a').each(function(){
 
 
 /* portfolio */
-
-const $portfolio_list = $('.portfolio_list'),
-$portfolio_cont = $('.portfolio_cont')
 
 var pageNum = 0,
 porContLength = $portfolio_cont.length-1;
@@ -100,8 +132,10 @@ function WheelDirection(delta){
 
 $portfolio.on('mousewheel',function(e){
     var delta = e.originalEvent.wheelDelta;
-    if(!$portfolio_list.is(':animated')){
+    if(!$portfolio_list.is(':animated') && isWeb){
     WheelDirection(delta);
     } 
 })
+
+
 })

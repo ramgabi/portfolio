@@ -3,13 +3,7 @@
 html, body{width:100vw;height:100vh;overflow:hidden}
 .wrapper{width:100vw;height:100vh;background:url(../images/bg.jpg) no-repeat center / cover}
 
-/* warning */
-
-.warning {width:100vw;height:100vh;background-color:#111;text-align:center;z-index:999;position:relative;color:#fff;line-height:100vh;font-size:20px;display:none;font-family:'NanumSquare'}
-
-@media all and (max-width:1280px){
-  .warning {display:block}
-}
+.warning{width:100vw;height:100vh;background-color:#222;text-align:center;font-size:24px;color:#fff;position:fixed;top:0;left:0;bottom:0;right:0;line-height:100vh;z-index:999;display:none}
 
 /* intro */
 
@@ -176,7 +170,7 @@ html, body{width:100vw;height:100vh;overflow:hidden}
 
 .cont_dsc{font-size:1.2vw;font-weight:500;line-height:2;opacity:.8}
 
-.link_list{display:block;margin-top:2vw;font-size:1.3vw;color:#fff;height:3/.4vw;line-height:3.4vw;font-weight:100;opacity:.6;text-align:center;background: rgb(226,0,98);background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%,rgb(23, 0, 39)50%,rgba(0, 0, 0, 0) 100%);font-family:'Astronaut';transition:all 1s ease}
+.link_list{display:block;margin-top:2vw;font-size:1.3vw;color:#fff;height:3.4vw;line-height:3.4vw;font-weight:100;opacity:.6;text-align:center;background: rgb(226,0,98);background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%,rgb(23, 0, 39)50%,rgba(0, 0, 0, 0) 100%);font-family:'Astronaut';transition:all 1s ease}
 .link_list:hover{opacity:1;background: rgb(226,0,98);background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%,rgba(206,1,122,1) 40%,rgba(157,5,183,1) 60%,rgba(0, 0, 0, 0) 100%)}
 
 
@@ -195,13 +189,95 @@ html, body{width:100vw;height:100vh;overflow:hidden}
 
 /* tab */
 
-@media all and (max-width:1280px){
+@media all and (max-width:1024px){
+
+  .header{width:100%;height:13vw;padding-top:0;background-color:rgba(51, 51, 51, 0.7)}
+  .header:after{display:none}
+
+  .gnb{text-align:center;line-height:13vw}
+  .gnb a{display:inline-block;padding-left:0;margin-left:50px;padding-bottom:35px}
+  .gnb a:first-child{margin-left:0}
+  .gnb a:after{top:100%}
+  .gnb a.on:after{width:100%}
+
+  .profile{padding:0 10%;height:100%;padding-top:calc(13vw + 50px)}
+
+  .notebook{float:none;width:48vh;margin:0 auto;height:45vh}
   
+  .profile_cont{float:none;padding-right:0;text-align:center;width:70%;margin:0 auto}
+  .name{font-size:8vw}
+  .name_kr{font-size:4vw;margin-left:20px}
+  .cont_list{margin-top:6vw}
+  .cont_list li{display:inline-block;font-size:4vw;margin-bottom:5vw;padding-left:6vw;height:4vw;line-height:4vw}
+  
+
+  .skill{padding-left:0;height:calc(100% - 13vw);margin-top:7.5vw}
+  .skill_list{padding-left:0}
+  .skill_dsc{font-size:2.2vw}
+
+  .skill_cont:nth-of-type(1) .skill_name:after{width:45vw}
+  .skill_cont:nth-of-type(2) .skill_name:after{width:42vw}
+  .skill_cont:nth-of-type(3) .skill_name:after{width:20vw}
+  .skill_cont:nth-of-type(4) .skill_name:after{width:45vw}
+  .skill_cont:nth-of-type(5) .skill_name:after{width:40vw}
+
+  @keyframes skill_1 {
+    0%{width:0;opacity:0}
+    100%{width:45vw;opacity:.2}
+  }
+  
+  @keyframes skill_2 {
+    0%{width:0;opacity:0}
+    100%{width:42vw;opacity:.2}
+  }
+  
+  @keyframes skill_3 {
+    0%{width:0;opacity:0}
+    100%{width:20vw;opacity:.2}
+  }
+  
+  @keyframes skill_4 {
+    0%{width:0;opacity:0}
+    100%{width:45vw;opacity:.2}
+  }
+  
+  @keyframes skill_5 {
+    0%{width:0;opacity:0}
+    100%{width:40vw;opacity:.2}
+  }
+
+
+  .portfolio{height:calc(100% - 18vw);margin-left:0;margin-top:12vw}
+  .portfolio_list{width:100%;overflow-y:scroll;height:100%}
+  .portfolio_list::-webkit-scrollbar{background-color:transparent;width:0}
+  .portfolio_cont{float:none;text-align:center;width:100%;opacity:1}
+
+  .portfolio_list .portfolio_cont .cont_img{float:none;width:75vw;height:50vw;transform:none;margin-right:0;margin:0 auto;box-shadow:0px 0px 10px rgb(0, 0, 0);background-color:transparent}
+  .portfolio_cont .cont_info{float:none;width:100vw;margin:30px auto 100px}
+
+  .cont_info h3{font-size:5vw}
+  .tag_list{font-size:2vw;margin:4vw 0}
+  .tag_list li{padding:1vw 2vw}
+  .cont_dsc{font-size:2.2vw;line-height:2.2}
+
+  .link_list{font-size:2.5vw;height:6vw;line-height:6vw;width:70vw;margin:20px auto 0}
+
+  .portfolio_cont .cont_img:hover{background-position:bottom left}
+
 }
 
 
 /* mob */
 
 @media all and (max-width:768px){
+
+  .header{height:70px}
+  .gnb{line-height:70px}
+  .gnb a{font-size:18px;padding-bottom:20px;margin-left:30px}
+
+  .notebook{width:42vh}
+
+  .portfolio{height:calc(100% -140px);margin-top:70px}
+  .portfolio_cont .cont_info{margin:20px auto 50px}
   
 }
