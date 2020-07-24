@@ -189,7 +189,7 @@ html, body{width:100vw;height:100vh;overflow:hidden}
 
 /* tab */
 
-@media all and (max-width:1280px){
+@media all and (max-width:1279px){
 
   .header{width:100%;height:13vw;padding-top:0;background-color:rgba(51, 51, 51, 0.7)}
   .header:after{display:none}
@@ -204,11 +204,11 @@ html, body{width:100vw;height:100vh;overflow:hidden}
 
   .notebook{float:none;width:48vh;margin:0 auto;height:45vh}
   
-  .profile_cont{float:none;padding-right:0;text-align:center;width:70%;margin:0 auto}
+  .profile_cont{float:none;padding-right:0;text-align:center;margin:0 auto}
   .name{font-size:8vw}
   .name_kr{font-size:4vw;margin-left:20px}
   .cont_list{margin-top:6vw}
-  .cont_list li{display:inline-block;font-size:4vw;margin-bottom:5vw;padding-left:6vw;height:4vw;line-height:4vw}
+  .cont_list li{display:inline-block;font-size:4vw;margin:0 50px 5vw;padding-left:5vw;height:4vw;line-height:4vw}
   
 
   .skill{padding-left:0;height:calc(100% - 13vw);margin-top:7.5vw}
@@ -269,7 +269,7 @@ html, body{width:100vw;height:100vh;overflow:hidden}
 
 /* mob */
 
-@media all and (max-width:768px){
+@media all and (max-width:767px){
 
   .header{height:70px}
   .gnb{line-height:70px}
@@ -279,12 +279,13 @@ html, body{width:100vw;height:100vh;overflow:hidden}
 
   .portfolio{height:calc(100% - 140px);margin-top:70px}
   .portfolio_cont .cont_info{margin:20px auto 50px}
+  .cont_dsc{font-size:2.8vw}
 
   .skill{height:calc(100% - 140px);left:50%;margin-top:70px;transform:translate(-50%,-50%)}
   .skill_list{text-align:center;width:100vw;overflow:scroll;height:90%;position:relative;right:initial;top:0;transform:none}
   .skill_cont{height:23vh;max-height:150px}
   .skill_name{display:block;margin:0 auto;width:16vw;height:16vw}
   .skill_name:after{display:none}
-  .skill_dsc{margin:20px 0 0;font-size:4vw;display:block}
+  .skill_dsc{margin:20px 0 0;font-size:3vw;display:block}
   
 }
